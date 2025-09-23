@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concept Forge - The Future of Game Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a0000 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4444;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff4444;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(255, 68, 68, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #ff4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(255, 68, 68, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(255, 68, 68, 0.8)); }
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff4444, #cc0000);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 68, 68, 0.5);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #ff4444;
+        }
+
+        /* About Section */
+        .about {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 68, 68, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 68, 68, 0.1);
+            box-shadow: 0 10px 30px rgba(255, 68, 68, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ff4444;
+        }
+
+        /* Technology Section */
+        .technology {
+            text-align: center;
+        }
+
+        .tech-description {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Team Section */
+        .team {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 68, 68, 0.1);
+        }
+
+        .team-member h4 {
+            color: #ff4444;
+            margin-bottom: 10px;
+        }
+
+        /* Waitlist Section */
+        .waitlist {
+            text-align: center;
+            background: linear-gradient(45deg, rgba(255, 68, 68, 0.1), rgba(0, 0, 0, 0.5));
+        }
+
+        .waitlist-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .waitlist-form input {
+            flex: 1;
+            min-width: 250px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 68, 68, 0.3);
+        }
+
+        .waitlist-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .waitlist-form button {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff4444, #cc0000);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .waitlist-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 68, 68, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 68, 68, 0.3);
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .waitlist-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Particle effect */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ff4444;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">CONCEPT FORGE</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#waitlist">Join Waitlist</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>The Future of Game Development</h1>
+            <p>Revolutionary engine technology that creates games through mods that mod mods</p>
+            <a href="#waitlist" class="cta-button">Join the Revolution</a>
+        </div>
+        <!-- Animated particles -->
+        <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 60%; left: 80%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 40%; left: 20%; animation-delay: 4s;"></div>
+        <div class="particle" style="top: 80%; left: 60%; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 30%; left: 90%; animation-delay: 3s;"></div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Redefining Game Creation</h2>
+            <div class="about-grid">
+                <div class="feature-card fade-in">
+                    <h3>Recursive Modding</h3>
+                    <p>Our groundbreaking technology allows mods to modify other mods, creating infinite possibilities for game content generation and emergent gameplay experiences.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <h3>Dynamic Engine</h3>
+                    <p>Built from the ground up to support self-modifying code structures, our engine adapts and evolves with each modification layer, pushing the boundaries of what's possible.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <h3>Community Driven</h3>
+                    <p>Empower creators to build upon each other's work in unprecedented ways, fostering a new era of collaborative game development and infinite content creation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technology" class="technology">
+        <div class="container">
+            <h2 class="section-title">The Technology</h2>
+            <div class="tech-description fade-in">
+                <p>Concept Forge represents a paradigm shift in game development. Our proprietary engine doesn't just support traditional modding – it enables mods to dynamically modify other mods in real-time, creating cascading layers of creativity and functionality.</p>
+                <br>
+                <p>This revolutionary approach means that games built on our platform can evolve organically through community contributions, with each modification potentially spawning entirely new gameplay mechanics, visual styles, and interactive experiences. The result is a living ecosystem where creativity compounds exponentially.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">The Creators</h2>
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <h4>Lead Engine Architect</h4>
+                    <p>Visionary developer with 15+ years in game engine development, specializing in modular systems and dynamic code execution.</p>
+                </div>
+                <div class="team-member fade-in">
+                    <h4>AI/ML Specialist</h4>
+                    <p>Expert in machine learning applications for game development, focusing on emergent behavior and adaptive systems.</p>
+                </div>
+                <div class="team-member fade-in">
+                    <h4>Community Architect</h4>
+                    <p>Passionate about building developer ecosystems and tools that empower creative communities to push boundaries.</p>
+                </div>
+                <div class="team-member fade-in">
+                    <h4>Technical Director</h4>
+                    <p>Veteran game developer with experience shipping AAA titles, now focused on the next generation of development tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="waitlist" class="waitlist">
+        <div class="container">
+            <h2 class="section-title">Join the Beta</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.9;">Be among the first to experience the future of game development. Get early access to our revolutionary engine and shape the future of interactive entertainment.</p>
+            <form class="waitlist-form" id="waitlistForm">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Join Waitlist</button>
+            </form>
+            <p style="margin-top: 20px; opacity: 0.7;">No spam, ever. Just updates on our progress and early access opportunities.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Concept Forge. All rights reserved.</p>
+            <p style="margin-top: 10px; opacity: 0.7;">Forging the future of interactive entertainment, one mod at a time.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header transparency on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                header.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+
+        // Waitlist form handling
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value;
+            const button = this.querySelector('button');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Adding you...';
+            button.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                button.textContent = '✓ Added to Waitlist!';
+                button.style.background = '#00aa00';
+                this.querySelector('input').value = '';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.background = '';
+                }, 3000);
+            }, 1500);
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Dynamic particle generation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            document.querySelector('.hero').appendChild(particle);
+
+            setTimeout(() => {
+                particle.remove();
+            }, 6000);
+        }
+
+        // Generate particles periodically
+        setInterval(createParticle, 3000);
+    </script>
+</body>
+</html>
