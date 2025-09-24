@@ -8,9 +8,12 @@
       href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="./style.css" />
   </head>
@@ -31,7 +34,7 @@
 
     <!-- HERO with inline SVG (RED glow version) -->
     <section class="hero">
-      <div class="forge-glow">
+      <div class="forge-glow fade-in">
         <svg
           transform="translate(9, 0)"
           viewBox="0 0 1150 560"
@@ -382,7 +385,7 @@
           </g>
         </svg>
       </div>
-      <div class="sub-contener">
+      <div class="sub-contener fade-in">
         <p class="subtitle">
           where <span class="Bold">Mods</span> mod
           <span class="Bold">Mods</span>
@@ -399,15 +402,16 @@
     <section class="how-it-works" id="how">
       <div class="container">
         <h2 class="section-title serif">Redefining Game Creation</h2>
-        <p class="section-subtitle">
-          Lorem ipsum dolor sit <span class="Bold">amet</span>, consectetur adipiscing elit, sed do
-          <span class="Bold">eiusmod</span> tempor incididunt ut <span class="Bold">labore</span> et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo <span class="Bold">consequat</span>.
+        <p class="section-subtitle fade-in">
+          Lorem ipsum dolor sit <span class="Bold">amet</span>, consectetur
+          adipiscing elit, sed do <span class="Bold">eiusmod</span> tempor
+          incididunt ut <span class="Bold">labore</span> et dolore magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          nisi ut aliquip ex ea commodo <span class="Bold">consequat</span>.
         </p>
 
         <div class="workflow">
-          <div class="workflow-step">
+          <div class="workflow-step fade-in">
             <h4>Recursive Modding</h4>
             <p>
               Our groundbreaking technology allows mods to modify other mods,
@@ -415,14 +419,14 @@
               emergent gameplay experiences.
             </p>
           </div>
-          <div class="workflow-step">
+          <div class="workflow-step fade-in">
             <h4>Concepts</h4>
             <p>
               Layered modifiers that inject meaning. "Warden", "Coward", "Slave"
               - concepts that override and extend base behaviors contextually.
             </p>
           </div>
-          <div class="workflow-step">
+          <div class="workflow-step fade-in">
             <h4>Dynamic Engine</h4>
             <p>
               Built from the ground up to support self-modifying code
@@ -579,20 +583,20 @@
     <section class="vision" id="vision">
       <div class="container">
         <h2 class="section-title serif">The Vision</h2>
-        <p class="section-subtitle">
+        <p class="section-subtitle fade-in">
           A future where games don't die, they evolve
         </p>
         <div class="vision-points">
-          <div class="vision-point">
+          <div class="vision-point fade-in">
             <strong>Games no longer reset from scratch.</strong> Every project
             builds on the semantic foundation of those before it.
           </div>
-          <div class="vision-point">
+          <div class="vision-point fade-in">
             <strong>Content becomes reusable, layered, alive.</strong> Assets
             transcend their original context, gaining new meaning through
             conceptual composition.
           </div>
-          <div class="vision-point">
+          <div class="vision-point fade-in">
             <strong>A modular, remixable future for games.</strong> Where
             creation is composition, and every player becomes a co-creator.
           </div>
@@ -610,7 +614,11 @@
         </p>
         <form class="waitlist-form" id="waitlistForm">
           <input type="email" placeholder="Enter your email" required />
-          <button type="submit" class="btn btn-primary glow" style="font-size: 20px">
+          <button
+            type="submit"
+            class="btn btn-primary glow"
+            style="font-size: 20px"
+          >
             Join waitlist
           </button>
         </form>
@@ -622,11 +630,13 @@
         </div> -->
       </div>
     </section>
-<footer>
-        <div class="container3">
-            <p>&copy; 2025 Concept Forge. All rights reserved.</p>
-            <p style="margin-top: 10px; opacity: 0.7;">Forging the future of interactive entertainment, one mod at a time.</p>
-        </div>
+    <footer>
+      <div class="container3">
+        <p>&copy; 2025 Concept Forge. All rights reserved.</p>
+        <p style="margin-top: 10px; opacity: 0.7">
+          Forging the future of interactive entertainment, one mod at a time.
+        </p>
+      </div>
     </footer>
     <script>
       // Create animated dots
@@ -694,30 +704,31 @@
             }, 2000);
           }, 1000);
         });*/
-   document.getElementById('waitlistForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input').value;
-            const button = this.querySelector('button');
-            const originalText = button.textContent;
-            
-            button.textContent = 'Adding you...';
-            button.disabled = true;
-            
-            // Simulate API call
+      document
+        .getElementById("waitlistForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = this.querySelector("input").value;
+          const button = this.querySelector("button");
+          const originalText = button.textContent;
+
+          button.textContent = "Adding you...";
+          button.disabled = true;
+
+          // Simulate API call
+          setTimeout(() => {
+            button.textContent = "✓ Added to Waitlist!";
+            button.style.background = "#00aa00";
+            button.style.borderColor = "#00aa00";
+            this.querySelector("input").value = "";
+
             setTimeout(() => {
-                button.textContent = '✓ Added to Waitlist!';
-                button.style.background = '#00aa00';
-                button.style.borderColor = "#00aa00";
-                this.querySelector('input').value = '';
-                
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.disabled = false;
-                    button.style.background = '';
-                    button.style.borderColor = "var(--red)";
-                }, 3000);
-            }, 1500);
-    
+              button.textContent = originalText;
+              button.disabled = false;
+              button.style.background = "";
+              button.style.borderColor = "var(--red)";
+            }, 3000);
+          }, 1500);
         });
 
       // Header transparency
@@ -728,6 +739,28 @@
             ? "rgba(10, 10, 10, 0.98)"
             : "rgba(10, 10, 10, 0.95)";
       });
+       // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
     </script>
   </body>
 </html>
