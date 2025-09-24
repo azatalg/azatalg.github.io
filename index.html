@@ -1,436 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concept Forge - The Future of Game Development</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Concept Forge - Games Built Like Language</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a0000 100%);
-            color: #fff;
-            overflow-x: hidden;
-        }
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="animated-dots" id="animatedDots"></div>
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff4444;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ff4444;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            background: radial-gradient(ellipse at center, rgba(255, 68, 68, 0.1) 0%, transparent 70%);
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff, #ff4444);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 20px rgba(255, 68, 68, 0.5)); }
-            to { filter: drop-shadow(0 0 30px rgba(255, 68, 68, 0.8)); }
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, #ff4444, #cc0000);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 68, 68, 0.5);
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #ff4444;
-        }
-
-        /* About Section */
-        .about {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 68, 68, 0.2);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 68, 68, 0.1);
-            box-shadow: 0 10px 30px rgba(255, 68, 68, 0.2);
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: #ff4444;
-        }
-
-        /* Technology Section */
-        .technology {
-            text-align: center;
-        }
-
-        .tech-description {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-
-        /* Team Section */
-        .team {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .team-member {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .team-member:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 68, 68, 0.1);
-        }
-
-        .team-member h4 {
-            color: #ff4444;
-            margin-bottom: 10px;
-        }
-
-        /* Waitlist Section */
-        .waitlist {
-            text-align: center;
-            background: linear-gradient(45deg, rgba(255, 68, 68, 0.1), rgba(0, 0, 0, 0.5));
-        }
-
-        .waitlist-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .waitlist-form input {
-            flex: 1;
-            min-width: 250px;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            border: 1px solid rgba(255, 68, 68, 0.3);
-        }
-
-        .waitlist-form input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .waitlist-form button {
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #ff4444, #cc0000);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .waitlist-form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 68, 68, 0.4);
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            padding: 50px 0;
-            text-align: center;
-            border-top: 1px solid rgba(255, 68, 68, 0.3);
-        }
-
-        /* Animations */
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .waitlist-form {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-
-        /* Particle effect */
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #ff4444;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
-        }
-    </style>
-</head>
-<body>
     <header>
-        <nav class="container">
-            <div class="logo">CONCEPT FORGE</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#technology">Technology</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#waitlist">Join Waitlist</a></li>
-            </ul>
-        </nav>
+      <nav class="container">
+        <a href="#" class="logo">CONCEPT FORGE</a>
+        <ul class="nav-links">
+          <li><a href="#how">About</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <!-- <li><a href="#uses">Contact</a></li> -->
+          <li><a href="#waitlist">Join Waitlist</a></li>
+        </ul>
+      </nav>
     </header>
 
+    <!-- HERO with inline SVG (RED glow version) -->
     <section class="hero">
-        <div class="hero-content fade-in">
-            <h1>The Future of Game Development</h1>
-            <p>Revolutionary engine technology that creates games through mods that mod mods</p>
-            <a href="#waitlist" class="cta-button">Join the Revolution</a>
+      <div class="forge-glow">
+        <svg
+          transform="translate(9, 0)"
+          viewBox="0 0 1150 560"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Concept Forge wordmark with continuum C"
+        >
+          <defs>
+            <!-- red neon-ish glow for whole lockup (optional on anvil) -->
+            <filter id="redGlow" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="6"
+                result="blur1"
+              />
+              <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="16"
+                result="blur2"
+              />
+              <feMerge>
+                <feMergeNode in="blur1" />
+                <feMergeNode in="blur2" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            <!-- per-letter blurs -->
+            <filter id="blurMed" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="6" />
+            </filter>
+            <filter id="blurHeavy" x="-80%" y="-80%" width="260%" height="260%">
+              <feGaussianBlur stdDeviation="16" />
+            </filter>
+
+            <!-- ember gradient (under FORGE) -->
+            <radialGradient id="emberGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#FF3333" stop-opacity="0.9" />
+              <stop offset="50%" stop-color="#990000" stop-opacity="0.6" />
+              <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+            </radialGradient>
+
+            <!-- crisp cut mask -->
+            <mask
+              id="wordMask"
+              maskUnits="userSpaceOnUse"
+              maskContentUnits="userSpaceOnUse"
+            >
+              <rect width="1150" height="700" fill="black" />
+              <text
+                x="193"
+                y="300"
+                font-family="Segoe UI, sans-serif"
+                font-weight="800"
+                font-size="155"
+                letter-spacing="2"
+                fill="white"
+              >
+                CONCEPT
+              </text>
+              <text
+                x="416"
+                y="425"
+                font-family="Segoe UI, sans-serif"
+                font-weight="600"
+                font-size="90"
+                letter-spacing="6"
+                fill="white"
+              >
+                FORGE
+              </text>
+              <!-- Cuts -->
+              <rect
+                fill="black"
+                transform="translate(309,150) rotate(30)"
+                width="20"
+                height="100"
+              />
+              <rect
+                fill="black"
+                transform="translate(300,289) rotate(150)"
+                width="20"
+                height="70"
+              />
+              <rect
+                fill="black"
+                transform="translate(440,300) rotate(150)"
+                width="20"
+                height="40"
+              />
+              <rect
+                fill="black"
+                transform="translate(549,215) rotate(150)"
+                width="20"
+                height="50"
+              />
+              <rect
+                fill="black"
+                transform="translate(657,150) rotate(30)"
+                width="30"
+                height="80"
+              />
+              <rect
+                fill="black"
+                transform="translate(599,240) rotate(-30)"
+                width="30"
+                height="90"
+              />
+              <rect
+                fill="black"
+                transform="translate(755,150) rotate(30)"
+                width="20"
+                height="72"
+              />
+              <rect
+                fill="black"
+                transform="translate(775,270) rotate(30)"
+                width="50"
+                height="62"
+              />
+              <rect
+                fill="black"
+                transform="translate(213,8)"
+                width="12"
+                height="300"
+              />
+              <rect
+                fill="black"
+                transform="translate(876,8)"
+                width="12"
+                height="300"
+              />
+            </mask>
+
+            <!-- dilated mask for glows (to let halo extend outside letters) -->
+            <filter
+              id="expandGlow"
+              x="-120%"
+              y="-120%"
+              width="340%"
+              height="340%"
+            >
+              <feMorphology
+                in="SourceAlpha"
+                operator="dilate"
+                radius="14"
+                result="dil"
+              />
+              <feGaussianBlur in="dil" stdDeviation="1.5" result="soft" />
+              <feMerge><feMergeNode in="soft" /></feMerge>
+            </filter>
+            <mask
+              id="wordMaskGlow"
+              maskUnits="userSpaceOnUse"
+              maskContentUnits="userSpaceOnUse"
+            >
+              <rect width="1150" height="700" fill="black" />
+              <g filter="url(#expandGlow)">
+                <text
+                  x="193"
+                  y="300"
+                  font-family="Segoe UI, Arial, sans-serif"
+                  font-weight="800"
+                  font-size="155"
+                  letter-spacing="2"
+                  fill="white"
+                >
+                  CONCEPT
+                </text>
+                <text
+                  x="416"
+                  y="425"
+                  font-family="Segoe UI, Arial, sans-serif"
+                  font-weight="600"
+                  font-size="90"
+                  letter-spacing="6"
+                  fill="white"
+                >
+                  FORGE
+                </text>
+              </g>
+              <!-- same cuts -->
+              <rect
+                fill="black"
+                transform="translate(309,150) rotate(30)"
+                width="20"
+                height="100"
+              />
+              <rect
+                fill="black"
+                transform="translate(300,289) rotate(150)"
+                width="20"
+                height="70"
+              />
+              <rect
+                fill="black"
+                transform="translate(440,300) rotate(150)"
+                width="20"
+                height="40"
+              />
+              <rect
+                fill="black"
+                transform="translate(549,215) rotate(150)"
+                width="20"
+                height="50"
+              />
+              <rect
+                fill="black"
+                transform="translate(657,150) rotate(30)"
+                width="30"
+                height="80"
+              />
+              <rect
+                fill="black"
+                transform="translate(599,240) rotate(-30)"
+                width="30"
+                height="90"
+              />
+              <rect
+                fill="black"
+                transform="translate(755,150) rotate(30)"
+                width="20"
+                height="72"
+              />
+              <rect
+                fill="black"
+                transform="translate(775,270) rotate(30)"
+                width="50"
+                height="62"
+              />
+              <rect
+                fill="black"
+                transform="translate(214,8)"
+                width="12"
+                height="300"
+              />
+              <rect
+                fill="black"
+                transform="translate(875,8)"
+                width="12"
+                height="300"
+              />
+            </mask>
+          </defs>
+
+          <!-- NO black background rect to keep logo transparent -->
+          <line
+            x1="458"
+            y1="435"
+            x2="749"
+            y2="435"
+            stroke="#dc2626"
+            stroke-width="4.8"
+            opacity="0.95"
+            transform="translate(-35,23)"
+          />
+          <!-- Red outer glow (heavy) -->
+          <g id="wordmark-glow-red" mask="url(#wordMaskGlow)" opacity="0.85">
+            <g filter="url(#blurHeavy)">
+              <text
+                x="193"
+                y="300"
+                font-family="Segoe UI, Arial, sans-serif"
+                font-weight="800"
+                font-size="155"
+                letter-spacing="2"
+                fill="#FF2A2A"
+              >
+                CONCEPT
+              </text>
+              <text
+                x="416"
+                y="425"
+                font-family="Segoe UI, Arial, sans-serif"
+                font-weight="600"
+                font-size="90"
+                letter-spacing="6"
+                fill="#FF2A2A"
+              >
+                FORGE
+              </text>
+            </g>
+          </g>
+
+          <!-- White inner glow (medium) -->
+          <g id="wordmark-glow-white" mask="url(#wordMaskGlow)" opacity="0.9">
+            <g filter="url(#blurMed)">
+              <text
+                x="193"
+                y="300"
+                font-family="Segoe UI, Arial, sans-serif"
+                font-weight="800"
+                font-size="155"
+                letter-spacing="2"
+                fill="#FFFFFF"
+              >
+                CONCEPT
+              </text>
+              <text
+                x="416"
+                y="425"
+                font-family="Segoe UI, Arial, sans-serif"
+                font-weight="600"
+                font-size="90"
+                letter-spacing="6"
+                fill="#EDEDED"
+              >
+                FORGE
+              </text>
+            </g>
+          </g>
+
+          <!-- Solid letters on top (crisp), clipped with cuts -->
+          <g id="wordmark-fill" mask="url(#wordMask)">
+            <text
+              x="193"
+              y="300"
+              font-family="Segoe UI, Arial, sans-serif"
+              font-weight="800"
+              font-size="155"
+              letter-spacing="2"
+              fill="#FFFFFF"
+            >
+              CONCEPT
+            </text>
+            <text
+              x="416"
+              y="425"
+              font-family="Segoe UI, Arial, sans-serif"
+              font-weight="600"
+              font-size="90"
+              letter-spacing="6"
+              fill="#CFCFCF"
+            >
+              FORGE
+            </text>
+          </g>
+
+          <!-- (Optional) anvil hint -->
+          <g
+            id="anvil"
+            transform="translate(400,320) scale(1.615,0.6)"
+            fill="#FFFFFF"
+            filter="url(#redGlow)"
+          >
+            <polygon points="0,0 210,0 180,20 30,20 0,0" />
+            <polygon points="80,20 130,20 120,40 90,40" />
+          </g>
+        </svg>
+      </div>
+      <div class="sub-contener">
+        <p class="subtitle">
+          where <span class="Bold">Mods</span> mod
+          <span class="Bold">Mods</span>
+        </p>
+        <div class="cta-buttons">
+          <a href="#waitlist" class="btn btn-primary glow" style="margin: -23px"
+            ><span class="Bold">Join The Forge</span></a
+          >
         </div>
-        <!-- Animated particles -->
-        <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
-        <div class="particle" style="top: 60%; left: 80%; animation-delay: 2s;"></div>
-        <div class="particle" style="top: 40%; left: 20%; animation-delay: 4s;"></div>
-        <div class="particle" style="top: 80%; left: 60%; animation-delay: 1s;"></div>
-        <div class="particle" style="top: 30%; left: 90%; animation-delay: 3s;"></div>
+      </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">Redefining Game Creation</h2>
-            <div class="about-grid">
-                <div class="feature-card fade-in">
-                    <h3>Recursive Modding</h3>
-                    <p>Our groundbreaking technology allows mods to modify other mods, creating infinite possibilities for game content generation and emergent gameplay experiences.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <h3>Dynamic Engine</h3>
-                    <p>Built from the ground up to support self-modifying code structures, our engine adapts and evolves with each modification layer, pushing the boundaries of what's possible.</p>
-                </div>
-                <div class="feature-card fade-in">
-                    <h3>Community Driven</h3>
-                    <p>Empower creators to build upon each other's work in unprecedented ways, fostering a new era of collaborative game development and infinite content creation.</p>
-                </div>
-            </div>
+    <!-- Problem/Solution -->
+    <section class="how-it-works" id="how">
+      <div class="container">
+        <h2 class="section-title serif">Redefining Game Creation</h2>
+        <p class="section-subtitle">
+          Lorem ipsum dolor sit <span class="Bold">amet</span>, consectetur adipiscing elit, sed do
+          <span class="Bold">eiusmod</span> tempor incididunt ut <span class="Bold">labore</span> et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo <span class="Bold">consequat</span>.
+        </p>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <h4>Recursive Modding</h4>
+            <p>
+              Our groundbreaking technology allows mods to modify other mods,
+              creating infinite possibilities for game content generation and
+              emergent gameplay experiences.
+            </p>
+          </div>
+          <div class="workflow-step">
+            <h4>Concepts</h4>
+            <p>
+              Layered modifiers that inject meaning. "Warden", "Coward", "Slave"
+              - concepts that override and extend base behaviors contextually.
+            </p>
+          </div>
+          <div class="workflow-step">
+            <h4>Dynamic Engine</h4>
+            <p>
+              Built from the ground up to support self-modifying code
+              structures, our engine adapts and evolves with each modification
+              layer, pushing the boundaries of what's possible.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section id="technology" class="technology">
-        <div class="container">
-            <h2 class="section-title">The Technology</h2>
-            <div class="tech-description fade-in">
-                <p>Concept Forge represents a paradigm shift in game development. Our proprietary engine doesn't just support traditional modding – it enables mods to dynamically modify other mods in real-time, creating cascading layers of creativity and functionality.</p>
-                <br>
-                <p>This revolutionary approach means that games built on our platform can evolve organically through community contributions, with each modification potentially spawning entirely new gameplay mechanics, visual styles, and interactive experiences. The result is a living ecosystem where creativity compounds exponentially.</p>
-            </div>
+    <!-- How It Works -->
+    <!-- <section class="how-it-works" id="how">
+      <div class="container">
+        <h2 class="section-title serif">How It Works</h2>
+        <p class="section-subtitle">
+          Three core primitives that revolutionize game creation
+        </p>
+
+        <div class="workflow">
+          <div class="workflow-step">
+            <h4>Slots</h4>
+            <p>
+              Placeholders for categories of assets. A character has weapon
+              slots, behavior slots, faction slots. Think semantic sockets, not
+              hardcoded references.
+            </p>
+          </div>
+          <div class="workflow-step">
+            <h4>Concepts</h4>
+            <p>
+              Layered modifiers that inject meaning. "Warden", "Coward", "Slave"
+              - concepts that override and extend base behaviors contextually.
+            </p>
+          </div>
+          <div class="workflow-step">
+            <h4>Categories</h4>
+            <p>
+              Types like weapon, behavior, faction. The taxonomy that gives
+              structure to your game's semantic space.
+            </p>
+          </div>
         </div>
+
+        <div class="code-sample">
+          {<br />
+          &nbsp;&nbsp;<span class="keyword">"character"</span>: {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">"slots"</span>: {<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword"
+            >"behavior"</span
+          >: <span class="string">"aggressive"</span>,<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword"
+            >"faction"</span
+          >: <span class="string">"bandit"</span><br />
+          &nbsp;&nbsp;&nbsp;&nbsp;},<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">"concepts"</span>:
+          [<span class="string">"coward"</span>,
+          <span class="string">"swamp_cult"</span>]<br />
+          &nbsp;&nbsp;}<br />
+          }
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Use Cases
+    <section class="use-cases" id="uses">
+      <div class="container">
+        <h2 class="section-title serif">Use Cases</h2>
+        <p class="section-subtitle">From simple mods to genre transformation</p>
+
+        <div class="use-case">
+          <h4>Behavioral Override</h4>
+          <p>
+            Transform any character by adding "Coward" - watch aggressive
+            enemies flee, leaders abandon posts, guards hide instead of patrol.
+            One concept, infinite applications.
+          </p>
+        </div>
+
+        <div class="use-case">
+          <h4>Factional Transformation</h4>
+          <p>
+            Create a Bandit Camp, then apply "Faction: Swamp Cult" - watch
+            textures, dialogue, rituals, and AI priorities shift seamlessly to
+            match the new context.
+          </p>
+        </div>
+
+        <div class="use-case">
+          <h4>Genre Shifting</h4>
+          <p>
+            Take Elden Ring assets, apply "Cyberpunk 2077" concepts - the same
+            castle becomes a corporate tower, the same NPCs become corpo agents.
+            Assets recontextualized, not rebuilt.
+          </p>
+        </div>
+
+        <div class="use-case">
+          <h4>Live Content Creation</h4>
+          <p>
+            Streamers can let audiences vote on concepts in real-time. "Make the
+            boss Friendly + Drunk" - watch personality and mechanics shift live
+            on stream.
+          </p>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Audience -->
+    <!-- <section class="audience">
+      <div class="container">
+        <h2 class="section-title serif">Built For</h2>
+        <div class="audience-grid">
+          <div class="audience-card">
+            <h4>Game Designers</h4>
+            <p>
+              Build through storytelling, not scripting. Design by composing
+              meaning, not managing dependencies.
+            </p>
+          </div>
+          <div class="audience-card">
+            <h4>Modders</h4>
+            <p>
+              Inject content without rebuilding systems. Layer meaning onto
+              existing games seamlessly.
+            </p>
+          </div>
+          <div class="audience-card">
+            <h4>Streamers</h4>
+            <p>
+              Dynamic audience-driven game control. Let your community shape the
+              experience in real-time.
+            </p>
+          </div>
+          <div class="audience-card">
+            <h4>AI Systems</h4>
+            <p>
+              Cleaner input-output control through semantic layers. LLMs
+              understand concepts better than code.
+            </p>
+          </div>
+          <div class="audience-card">
+            <h4>Investors</h4>
+            <p>
+              Scalable UGC platform with concept-based revenue models. Content
+              that compounds, not competes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Vision -->
+    <section class="vision" id="vision">
+      <div class="container">
+        <h2 class="section-title serif">The Vision</h2>
+        <p class="section-subtitle">
+          A future where games don't die, they evolve
+        </p>
+        <div class="vision-points">
+          <div class="vision-point">
+            <strong>Games no longer reset from scratch.</strong> Every project
+            builds on the semantic foundation of those before it.
+          </div>
+          <div class="vision-point">
+            <strong>Content becomes reusable, layered, alive.</strong> Assets
+            transcend their original context, gaining new meaning through
+            conceptual composition.
+          </div>
+          <div class="vision-point">
+            <strong>A modular, remixable future for games.</strong> Where
+            creation is composition, and every player becomes a co-creator.
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title">The Creators</h2>
-            <div class="team-grid">
-                <div class="team-member fade-in">
-                    <h4>Lead Engine Architect</h4>
-                    <p>Visionary developer with 15+ years in game engine development, specializing in modular systems and dynamic code execution.</p>
-                </div>
-                <div class="team-member fade-in">
-                    <h4>AI/ML Specialist</h4>
-                    <p>Expert in machine learning applications for game development, focusing on emergent behavior and adaptive systems.</p>
-                </div>
-                <div class="team-member fade-in">
-                    <h4>Community Architect</h4>
-                    <p>Passionate about building developer ecosystems and tools that empower creative communities to push boundaries.</p>
-                </div>
-                <div class="team-member fade-in">
-                    <h4>Technical Director</h4>
-                    <p>Veteran game developer with experience shipping AAA titles, now focused on the next generation of development tools.</p>
-                </div>
-            </div>
-        </div>
+    <!-- Footer CTA -->
+    <section class="footer-cta" id="waitlist">
+      <div class="container">
+        <h2 class="section-title serif">Join the Revolution</h2>
+        <p class="section-subtitle">
+          Be first to shape the ecosystem. Early creators will be part of the
+          first testnet and leave their mark on the next generation of games.
+        </p>
+        <form class="waitlist-form" id="waitlistForm">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit" class="btn btn-primary glow" style="font-size: 20px">
+            Join waitlist
+          </button>
+        </form>
+        <!-- <div class="social-links">
+          <a href="#">Discord</a>
+          <a href="#">Twitter</a>
+          <a href="#">GitHub</a>
+          <a href="#">Documentation</a>
+        </div> -->
+      </div>
     </section>
-
-    <section id="waitlist" class="waitlist">
-        <div class="container">
-            <h2 class="section-title">Join the Beta</h2>
-            <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.9;">Be among the first to experience the future of game development. Get early access to our revolutionary engine and shape the future of interactive entertainment.</p>
-            <form class="waitlist-form" id="waitlistForm">
-                <input type="email" placeholder="Enter your email address" required>
-                <button type="submit">Join Waitlist</button>
-            </form>
-            <p style="margin-top: 20px; opacity: 0.7;">No spam, ever. Just updates on our progress and early access opportunities.</p>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
+<footer>
+        <div class="container3">
             <p>&copy; 2025 Concept Forge. All rights reserved.</p>
             <p style="margin-top: 10px; opacity: 0.7;">Forging the future of interactive entertainment, one mod at a time.</p>
         </div>
     </footer>
-
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+      // Create animated dots
+      function createDots() {
+        const dotsContainer = document.getElementById("animatedDots");
+        const numberOfDots = 150;
+        for (let i = 0; i < numberOfDots; i++) {
+          const dot = document.createElement("div");
+          dot.className = "dot";
+          dot.style.left = Math.random() * 100 + "%";
+          dot.style.animationDelay = Math.random() * 8 + "s";
+          dotsContainer.appendChild(dot);
+        }
+      }
+      // Sparks around (if you add anvil later)
+      function createSparks() {
+        const anvilContainer = document.querySelector(".anvil-container");
+        if (!anvilContainer) return;
+        setInterval(() => {
+          const spark = document.createElement("div");
+          spark.className = "spark";
+          const centerX = 150,
+            centerY = 150,
+            radius = 50,
+            angle = Math.random() * Math.PI * 2;
+          spark.style.left = centerX + Math.cos(angle) * radius + "px";
+          spark.style.top = centerY + Math.sin(angle) * radius + "px";
+          const dx = (Math.random() - 0.5) * 100 + "px";
+          const dy = (Math.random() - 0.5) * 100 + "px";
+          spark.style.setProperty("--dx", dx);
+          spark.style.setProperty("--dy", dy);
+          anvilContainer.appendChild(spark);
+          setTimeout(() => {
+            spark.remove();
+          }, 3000);
+        }, 500);
+      }
+      createDots();
+      createSparks();
 
-        // Header transparency on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
-            } else {
-                header.style.background = 'rgba(0, 0, 0, 0.9)';
-            }
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target)
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
         });
+      });
 
-        // Waitlist form handling
-        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+      // Waitlist form handling
+      /*document
+        .querySelector(".waitlist-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = this.querySelector('input[type="email"]').value;
+          const button = this.querySelector("button");
+          button.textContent = "Joining...";
+          button.style.background = "var(--red)";
+          setTimeout(() => {
+            button.textContent = "Welcome to the Forge!";
+            this.querySelector("input").value = "";
+            setTimeout(() => {
+              button.textContent = "Get Early Access";
+            }, 2000);
+          }, 1000);
+        });*/
+   document.getElementById('waitlistForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = this.querySelector('input').value;
             const button = this.querySelector('button');
@@ -443,55 +707,27 @@
             setTimeout(() => {
                 button.textContent = '✓ Added to Waitlist!';
                 button.style.background = '#00aa00';
+                button.style.borderColor = "#00aa00";
                 this.querySelector('input').value = '';
                 
                 setTimeout(() => {
                     button.textContent = originalText;
                     button.disabled = false;
                     button.style.background = '';
+                    button.style.borderColor = "var(--red)";
                 }, 3000);
             }, 1500);
+    
         });
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Dynamic particle generation
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 6 + 's';
-            document.querySelector('.hero').appendChild(particle);
-
-            setTimeout(() => {
-                particle.remove();
-            }, 6000);
-        }
-
-        // Generate particles periodically
-        setInterval(createParticle, 3000);
+      // Header transparency
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        header.style.background =
+          window.scrollY > 100
+            ? "rgba(10, 10, 10, 0.98)"
+            : "rgba(10, 10, 10, 0.95)";
+      });
     </script>
-</body>
+  </body>
 </html>
