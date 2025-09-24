@@ -479,6 +479,12 @@ section {
   .anvil-container {
     display: none;
   }
+  @font-face {
+  font-family: 'Segoe UI';
+  src: url('./fonts/Segoe\ UI.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
   .forge-glow svg {
       height: 30vh;
