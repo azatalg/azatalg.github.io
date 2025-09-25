@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Bitcount+Single+Ink:wght@100..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" type="text/css" href="fonts/style.css" />
 
     <link rel="stylesheet" href="./style.css" />
   </head>
@@ -36,11 +37,13 @@
     <section class="hero">
       <div class="forge-glow fade-in">
         <svg
-          transform="translate(9, 0)"
-          viewBox="0 0 1150 560"
+          transform="translate(0, 0)"
+        viewBox="142 0 840 520"
           xmlns="http://www.w3.org/2000/svg"
           role="img"
-          aria-label="Concept Forge wordmark with continuum C"
+          aria-label="Concept Forge"
+          width="100%"
+          preserveAspectRatio="xMidYMax meet"
         >
           <defs>
             <!-- red neon-ish glow for whole lockup (optional on anvil) -->
@@ -87,18 +90,18 @@
               <text
                 x="193"
                 y="300"
-                font-family="Segoe UI, sans-serif"
+                font-family="Segoe UI Bold"
                 font-weight="800"
                 font-size="155"
                 letter-spacing="2"
                 fill="white"
               >
-                CONCEPT
+CONCEP<tspan dx="-2">T</tspan>
               </text>
               <text
-                x="416"
+                x="408"
                 y="425"
-                font-family="Segoe UI, sans-serif"
+                font-family="Segoe UI"
                 font-weight="600"
                 font-size="90"
                 letter-spacing="6"
@@ -157,13 +160,13 @@
               />
               <rect
                 fill="black"
-                transform="translate(213,8)"
+                transform="translate(208,8)"
                 width="12"
                 height="300"
               />
               <rect
                 fill="black"
-                transform="translate(876,8)"
+                transform="translate(873,5)"
                 width="12"
                 height="300"
               />
@@ -196,18 +199,18 @@
                 <text
                   x="193"
                   y="300"
-                  font-family="Segoe UI, Arial, sans-serif"
+                  font-family="Segoe UI Bold"
                   font-weight="800"
                   font-size="155"
                   letter-spacing="2"
                   fill="white"
                 >
-                  CONCEPT
+CONCEP<tspan dx="-2">T</tspan>
                 </text>
                 <text
-                  x="416"
+                  x="408"
                   y="425"
-                  font-family="Segoe UI, Arial, sans-serif"
+                  font-family="Segoe UI"
                   font-weight="600"
                   font-size="90"
                   letter-spacing="6"
@@ -282,9 +285,9 @@
 
           <!-- NO black background rect to keep logo transparent -->
           <line
-            x1="458"
+            x1="430"
             y1="435"
-            x2="749"
+            x2="760"
             y2="435"
             stroke="#dc2626"
             stroke-width="4.8"
@@ -297,18 +300,18 @@
               <text
                 x="193"
                 y="300"
-                font-family="Segoe UI, Arial, sans-serif"
+                font-family="Segoe UI Bold"
                 font-weight="800"
                 font-size="155"
                 letter-spacing="2"
                 fill="#FF2A2A"
               >
-                CONCEPT
+CONCEP<tspan dx="-2">T</tspan>
               </text>
               <text
-                x="416"
+                x="408"
                 y="425"
-                font-family="Segoe UI, Arial, sans-serif"
+                font-family="Segoe UI"
                 font-weight="600"
                 font-size="90"
                 letter-spacing="6"
@@ -325,18 +328,18 @@
               <text
                 x="193"
                 y="300"
-                font-family="Segoe UI, Arial, sans-serif"
-                font-weight="800"
+                font-family="Segoe UI Bold"
+                font-weight="1000"
                 font-size="155"
                 letter-spacing="2"
                 fill="#FFFFFF"
               >
-                CONCEPT
+CONCEP<tspan dx="-2">T</tspan>
               </text>
               <text
-                x="416"
+                x="408"
                 y="425"
-                font-family="Segoe UI, Arial, sans-serif"
+                font-family="Segoe UI"
                 font-weight="600"
                 font-size="90"
                 letter-spacing="6"
@@ -348,22 +351,26 @@
           </g>
 
           <!-- Solid letters on top (crisp), clipped with cuts -->
-          <g id="wordmark-fill" mask="url(#wordMask)">
+          <g
+            id="wordmark-fill"
+            transform="translate(0, 0)"
+            mask="url(#wordMask)"
+          >
             <text
               x="193"
               y="300"
-              font-family="Segoe UI, Arial, sans-serif"
+              font-family="Segoe UI Bold"
               font-weight="800"
               font-size="155"
               letter-spacing="2"
               fill="#FFFFFF"
             >
-              CONCEPT
+              CONCEP<tspan dx="-2">T</tspan>
             </text>
             <text
-              x="416"
+              x="408"
               y="425"
-              font-family="Segoe UI, Arial, sans-serif"
+              font-family="Segoe UI"
               font-weight="600"
               font-size="90"
               letter-spacing="6"
@@ -376,22 +383,34 @@
           <!-- (Optional) anvil hint -->
           <g
             id="anvil"
-            transform="translate(400,320) scale(1.615,0.6)"
+            transform="translate(392,320) scale(1.615,0.6)"
             fill="#FFFFFF"
             filter="url(#redGlow)"
           >
             <polygon points="0,0 210,0 180,20 30,20 0,0" />
             <polygon points="80,20 130,20 120,40 90,40" />
           </g>
+          <text
+            class="subtitle"
+            x="558"
+            y="505"
+            text-anchor="middle"
+            fill="#a3a3a3"
+          >
+            where
+            <tspan font-weight="700" fill="#ffffff">Mods</tspan>
+            mod
+            <tspan font-weight="700" fill="#ffffff">Mods</tspan>
+          </text>
         </svg>
       </div>
       <div class="sub-contener fade-in">
-        <p class="subtitle">
+        <!-- <p class="subtitle">
           where <span class="Bold">Mods</span> mod
           <span class="Bold">Mods</span>
-        </p>
+        </p> -->
         <div class="cta-buttons">
-          <a href="#waitlist" class="btn btn-primary glow" style="margin: -23px"
+          <a href="#waitlist" class="btn btn-primary glow" style="margin: 0 auto"
             ><span class="Bold">Join The Forge</span></a
           >
         </div>
@@ -739,28 +758,28 @@
             ? "rgba(10, 10, 10, 0.98)"
             : "rgba(10, 10, 10, 0.95)";
       });
-       // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
         });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "all 0.6s ease";
+        observer.observe(el);
+      });
     </script>
   </body>
 </html>
