@@ -85,6 +85,7 @@ body {
 /* Forge glow wrapper (kept for layout) */
 .forge-glow {
   position: relative;
+  text-align: center;
 }
 .forge-glow svg {
   scale: 1;
@@ -352,7 +353,10 @@ section {
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
-
+.img {
+  width: 60%;
+  margin-top: 100px;
+}
 /* Vision */
 .vision {
   background: radial-gradient(
@@ -456,6 +460,9 @@ section {
     margin-left: 0%;
 
   } 
+  .img {
+    width: 90%;
+  }
 } 
 /* Responsive */
 @media (max-width: 768px) {
@@ -487,12 +494,17 @@ section {
     margin: 0 auto;
   }
   .forge-glow svg {
-      scale: 1.1;
+      scale: 1.25;
     margin-top: -20%;
     margin-bottom: 10%;
 
 
   } 
+  .img {
+    width: 110%;
+    margin-left: -5%;
+    margin-top: 240px;
+  }
 }
 
 .sub-contener {
