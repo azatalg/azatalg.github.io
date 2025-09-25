@@ -353,7 +353,7 @@ section {
   font-size: 1.5rem;
   margin-bottom: 15px;
 }
-.img {
+.imgLogo {
   width: 60%;
   margin-top: 100px;
 }
@@ -460,7 +460,7 @@ section {
     margin-left: 0%;
 
   } 
-  .img {
+  .imgLogo {
     width: 90%;
   }
 } 
@@ -500,7 +500,7 @@ section {
 
 
   } 
-  .img {
+  .imgLogo {
     width: 110%;
     margin-left: -5%;
     margin-top: 240px;
