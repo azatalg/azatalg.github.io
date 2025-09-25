@@ -489,7 +489,9 @@ section {
   .anvil-container {
     display: none;
   }
- 
+  .btn {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+  }
    .forge-glow {
     margin: 0 auto;
   }
