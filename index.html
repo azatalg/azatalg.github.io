@@ -40,12 +40,14 @@
       </div>
       <div class="sub-contener fade-in">
         <p class="subtitle">
-          where <span class="Bold">Mods</span> mod
-          <span class="Bold">Mods</span>
+          <span class="red">Cooperative</span>  Game <span class="red">Creation Platform</span>  <br>
+          <!-- where <span class="Bold">Mods</span> mod
+          <span class="Bold">Mods</span> -->
+          <!-- Forging <span class="red">Legends</span> Together -->
         </p>
         <div class="cta-buttons">
-          <a href="#waitlist" class="btn btn-primary glow" style="margin: 0 auto"
-            ><span class="Bold">Join The Forge</span></a
+          <a href="#how" class="btn btn-primary glow" style="margin: 0 auto"
+            ><span class="Bold">Learn More</span></a
           >
         </div>
       </div>
@@ -53,15 +55,14 @@
 
     <!-- Problem/Solution -->
     <section class="how-it-works" id="how">
-      <div class="container">
-        <h2 class="section-title serif">Redefining Game Creation</h2>
-        <p class="section-subtitle fade-in">
-          Lorem ipsum dolor sit <span class="Bold">amet</span>, consectetur
-          adipiscing elit, sed do <span class="Bold">eiusmod</span> tempor
-          incididunt ut <span class="Bold">labore</span> et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo <span class="Bold">consequat</span>.
-        </p>
+      <div class="containerM">
+        <h2 class="section-title serif">Forging Legends Together </h2>
+   <p class="section-subtitle2 fade-in">
+ <span class="Bold">Making games</span> alone is <span class="Bold">hard</span>, dangerous even
+<br>Don’t worry, you’re safe — we’re here
+<br><span class="Bold">Join the forge</span> and begin your <span class="Bold">path to greatness</span>
+<br>We’ll build the <span class="Bold">real depth</span> you’ve always craved —<span class="Bold"> together </span>
+</p>
 
         <div class="workflow">
           <div class="workflow-step fade-in">
@@ -357,7 +358,103 @@
             }, 2000);
           }, 1000);
         });*/
-      document
+      const API_URL = "http://localhost:8080/waitlist"
+
+      
+document.getElementById("waitlistForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const input = this.querySelector("input[type=email], input[name=email]") || this.querySelector("input");
+  const button = this.querySelector("button");
+  const originalText = button.textContent;
+  const email = (input.value || "").trim().toLowerCase();
+
+  // prosty walidator (zgodny z backendem)
+  const emailRe = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/i;
+  if (!emailRe.test(email)) {
+    toast("Invalid email.");
+    return;
+  }
+
+  button.textContent = "Adding you…";
+  button.disabled = true;
+
+  try {
+    // opcjonalnie: pobierz token z Turnstile, jeśli używasz
+    let captchaToken;
+    if (window.turnstile && typeof window.turnstile.getResponse === "function") {
+      captchaToken = window.turnstile.getResponse();
+    }
+
+    const res = await fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        ...(captchaToken ? { captcha_response: captchaToken } : {})
+      }),
+    });
+
+    if (res.status === 202) {
+      // success (idempotentnie, bez zdradzania stanu)
+      success(button, input, originalText);
+      return;
+    }
+
+    // błędy „miękkie”
+    if (res.status === 400) {
+      const msg = (await res.text()).toLowerCase().includes("captcha") ? "Captcha failed." : "Invalid email.";
+      throw new Error(msg);
+    }
+    if (res.status === 429) throw new Error("Too many requests — slow down, vampire.");
+
+    // inne
+    throw new Error("Server error. Try again later.");
+  } catch (err) {
+    console.error(err);
+    fail(button, originalText, err.message || "Something went wrong.");
+  } finally {
+    // opcjonalnie zresetuj Turnstile po próbie
+    if (window.turnstile && typeof window.turnstile.reset === "function") {
+      window.turnstile.reset();
+    }
+  }
+});
+
+function success(button, input, originalText) {
+  button.textContent = "✓ Added to waitlist!";
+  const prevBg = button.style.background, prevBorder = button.style.borderColor;
+  button.style.background = "#00aa00";
+  button.style.borderColor = "#00aa00";
+  input.value = "";
+  setTimeout(() => {
+    button.textContent = originalText;
+    button.disabled = false;
+    button.style.background = prevBg;
+    button.style.borderColor = prevBorder || "var(--red)";
+  }, 2500);
+}
+
+function fail(button, originalText, message) {
+  toast(message);
+  button.textContent = originalText;
+  button.disabled = false;
+}
+
+// mini-toast (zero deps)
+function toast(msg) {
+  let t = document.getElementById("toast-min");
+  if (!t) {
+    t = document.createElement("div");
+    t.id = "toast-min";
+    t.style.cssText = "position:fixed;left:50%;bottom:24px;transform:translateX(-50%);padding:10px 14px;border-radius:8px;background:#300;color:#faa;border:1px solid #a00;font:14px/1.2 system-ui, sans-serif;z-index:9999;box-shadow:0 6px 24px rgba(0,0,0,.4)";
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.opacity = "1";
+  setTimeout(() => (t.style.opacity = "0"), 2200);
+}
+    /*  document
         .getElementById("waitlistForm")
         .addEventListener("submit", function (e) {
           e.preventDefault();
@@ -383,7 +480,7 @@
             }, 3000);
           }, 1500);
         });
-
+*/
       // Header transparency
       window.addEventListener("scroll", () => {
         const header = document.querySelector("header");
