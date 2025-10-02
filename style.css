@@ -191,25 +191,43 @@ nav {
 .btn {
   position: relative;
   z-index: 10;
-  padding: 10px 38px;
-  font-size: 24px;
-  font-weight: 600;
+  padding: 12px 42px;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   text-decoration: none;
-  border-radius: 15px;
-  transition: all 0.3s;
-  cursor: pointer;
-  border: 2px solid transparent;
+  border-radius: 0px; /* no mercy */
+  border: 2px solid var(--red);
   display: inline-block;
+  cursor: pointer;
+  background: black;
+  color: var(--red);
+  box-shadow: 
+    0 0 0 1px var(--red), 
+    0 0 8px var(--red-glow), 
+    0 0 16px var(--red-glow), 
+    inset 0 0 10px rgba(255, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
 }
+
 .btn-primary {
-  background: var(--red);
-  color: var(--white);
+  background: black;
+  color: var(--red);
   border-color: var(--red);
 }
+
 .btn-primary:hover {
-  background: transparent;
-  box-shadow: 0 0 20px var(--red-glow);
+  background: var(--red);
+  color: black;
+  box-shadow: 
+    0 0 2px var(--red), 
+    0 0 20px var(--red-glow), 
+    0 0 40px var(--red-glow), 
+    inset 0 0 10px rgba(255, 0, 0, 0.6);
+  transform: translateY(-2px) scale(1.03);
 }
+
 .btn-secondary {
   background: transparent;
   color: var(--white);
