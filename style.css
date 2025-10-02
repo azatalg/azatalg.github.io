@@ -194,7 +194,7 @@ nav {
   padding: 12px 42px;
   font-size: 22px;
   font-weight: 700;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 1px;
   text-decoration: none;
   border-radius: 0px; /* no mercy */
